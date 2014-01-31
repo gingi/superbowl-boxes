@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TaxterBowl 2014</title>
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="css/font-awesome.css" type="text/css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="css/master.css" type="text/css" media="screen" title="no title" charset="utf-8">
+    <style type="text/css" media="screen">
+    body {
+        padding: 40px;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <ul class="nav nav-tabs" id="tabbar">
+        <li><a data-toggle="tab" href="#settings">Settings</a></li>
+        <li><a data-toggle="tab" href="#grid">Grid</a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane" id="settings">
+            <div class="row">
+                <form role="form" class="form-horizontal" id="settings-form">
+                    <div class="form-group">
+                        <label for="afcTeam" class="col-sm-2 control-label">
+                            AFC Team
+                        </label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="afcTeam"
+                                placeholder="Denver Broncos"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="afcTeam" class="col-sm-2 control-label">
+                            NFC Team
+                        </label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="nfcTeam"
+                                placeholder="Seattle Seahawks" />
+                        </div>
+                    </div>
+                    <h3>Players</h3>
+                    <div class="form-group" id="player-input">
+                    </div>
+                    <button id="save-settings"
+                        class="btn btn-lg btn-primary pull-right">Go!</button>
+                    <button id="reset-settings"
+                        class="btn btn-lg btn-default pull-right">Reset</button>
+                </form>
+            </div>
+        </div>
+        <div class="tab-pane" id="grid">
+            
+        </div>
+    </div>
+</div>
+    <script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/app.js" type="text/javascript" charset="utf-8"></script>
+</body>

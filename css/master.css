@@ -1,0 +1,18 @@
+#tabbar {
+	margin-bottom: 20px;
+}
+.box {
+	border: 1px solid gray;
+	border-radius: 4px;
+	margin: 5px;
+	padding: 1px;
+	height: 70px;
+	width: 70px;
+	vertical-align: middle;
+	display: table-cell;
+	text-align: center;
+	line-height: 70px;
+}
+#grid {
+	position: relative;
+}
