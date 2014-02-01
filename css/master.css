@@ -1,9 +1,11 @@
+@import url(http://fonts.googleapis.com/css?family=Graduate);
+
 #tabbar {
 	margin-bottom: 20px;
 }
 .box {
 	border: 1px solid gray;
-	border-radius: 4px;
+	border-radius: 8px;
 	margin: 5px;
 	padding: 1px;
 	height: 70px;
@@ -12,7 +14,54 @@
 	display: table-cell;
 	text-align: center;
 	line-height: 70px;
+	background-color: #ccc;
+	color: #fff;
+	font-weight: bold;
 }
 #grid {
 	position: relative;
+}
+.box-head {
+	background-color: #999;
+	color: #fff;
+	padding: 2px;
+	text-align: center;
+	border-radius: 4px;
+	margin: 30px;
+	width: 20px;
+}
+.box-head.box-col {
+	margin-bottom: 10px;
+	margin-left: 10px;
+	margin-right: 50px;
+}
+.box-head.box-row {
+	margin-right: 10px;
+}
+.team-name {
+	font-family: 'Graduate', cursive;
+	font-size: 24pt;
+	text-align: center;
+	background-color: rgb(66, 139, 202);
+	color: #fefefe;
+	border-radius: 8px;
+	padding: 15px;
+}
+.team-name.horizontal {
+	width: 780px;
+	margin-left: 70px;
+}
+.team-name.vertical {
+	position: absolute;
+	height: 80px;
+	width: 825px;
+	left: -470px;
+	top: 520px;
+}
+.vertical {
+	-webkit-transform: rotate(-90deg);
+	   -moz-transform: rotate(-90deg);
+	    -ms-transform: rotate(-90deg);
+		 -o-transform: rotate(-90deg);
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 }

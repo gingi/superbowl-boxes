@@ -38,7 +38,6 @@ $(document).ready(function () {
 		playerIndex++;
 	}
 	function populateValues() {
-		console.log("Settings", settings);
 		for (var setting in settings) {
 			var id = "#" + setting;
 			if (setting.indexOf("player") === 0) {
@@ -140,11 +139,22 @@ $(document).ready(function () {
 			return;
 		}
 		$("#grid")
-			.append(d({ class: "row" }))
-				.append(d({ class: "col-md-10 offset-md-2"})).text(settings.nfcTeam);
+			.append(d({ class: "row" })
+				.append(d({ class: "col-md-10 col-md-offset-1 team-name horizontal"})
+					.text(settings.nfcTeam)));
+		var headRow = d({ class: "row" }).append(d({ class: "col-md-1" }));
+		$("#grid").append(headRow);
+		for (var i = 0; i < 10; i++) {
+			headRow.append(d({ class: "col-md-1 box-head box-col" }).text(i));
+		}
+		
+		$("#grid")
+			.append(d({ class: "team-name vertical"})
+				.text(settings.afcTeam));
+		
 		for (var i = 0; i < 10; i++) {
 			var row = d({ class: "row" });
-			row.append(d({ class: "box-head col-md-1 offset-md-1"}).text(i));
+			row.append(d({ class: "box-head box-row col-md-1 offset-md-1"}).text(i));
 			for (var j = 0; j < 10; j++) {
 				row.append(d({ class: "col-md-1 box" }).text(boxes[ROWS * i + j]));
 			}
