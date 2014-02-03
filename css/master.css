@@ -18,6 +18,15 @@
 	color: #fff;
 	font-weight: bold;
 }
+.player-row {
+	display: table;
+	color: white;
+	width: 600px;
+	margin-bottom: 5px;
+	padding: 8px;
+	border-radius: 8px;
+	margin-left: 100px;
+}
 #grid {
 	position: relative;
 }

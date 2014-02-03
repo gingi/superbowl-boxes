@@ -2,6 +2,10 @@ $(document).ready(function () {
 	var ROWS = 10;
 	var COLS = 10;
 	var players = [];
+	var COLORSa = ["#1f77b4", "#aec7e8", "#ff7f0e", "#ffbb78", "#2ca02c", "#98df8a", "#d62728", "#ff9896", "#9467bd", "#c5b0d5", "#8c564b", "#c49c94", "#e377c2", "#f7b6d2", "#7f7f7f", "#c7c7c7", "#bcbd22", "#dbdb8d", "#17becf", "#9edae5"];
+	var COLORSb = ["#393b79", "#5254a3", "#6b6ecf", "#9c9ede", "#637939", "#8ca252", "#b5cf6b", "#cedb9c", "#8c6d31", "#bd9e39", "#e7ba52", "#e7cb94", "#843c39", "#ad494a", "#d6616b", "#e7969c", "#7b4173", "#a55194", "#ce6dbd", "#de9ed6"];
+	var COLORSc = ["#3182bd", "#6baed6", "#9ecae1", "#c6dbef", "#e6550d", "#fd8d3c", "#fdae6b", "#fdd0a2", "#31a354", "#74c476", "#a1d99b", "#c7e9c0", "#756bb1", "#9e9ac8", "#bcbddc", "#dadaeb", "#636363", "#969696", "#bdbdbd", "#d9d9d9"];
+	var COLORS = ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b", "#e377c2", "#7f7f7f", "#bcbd22", "#17becf"];
 	var NAMES = ["Jane", "Joe", "Jude", "Jack", "Jill", "Jorge", "Jackie"];
 	var settings = JSON.parse(localStorage.getItem("settings")) || {};
 	var playerIndex = 1;
@@ -20,7 +24,12 @@ $(document).ready(function () {
 	function addPlayer() {
 		var id = "player" + playerIndex;
 		$("#btn-new-player").remove();
-		$("#player-input").append(d({ class: "row" })
+		$("#player-input").append(d({ class: "row", id: "player-row-" + playerIndex })
+			.append(d({
+				class: "player-row",
+				style: "background-color: " +
+					COLORS[(playerIndex - 1) % COLORS.length]
+			})
 			.append($("<label>", { for: id, class: "col-sm-2 control-label" })
 				.text("Player " + playerIndex))
 			.append(d({ class: "col-sm-6" })
@@ -34,7 +43,7 @@ $(document).ready(function () {
 					class: "btn btn-default",
 					id: "btn-new-player"
 				}).append($("<i>", { class: "fa fa-plus" })).click(addPlayer)))
-			);
+			));
 		playerIndex++;
 	}
 	function populateValues() {
@@ -66,11 +75,11 @@ $(document).ready(function () {
 	$("#reset-settings").click(function (e) {
 		e.preventDefault();
 		$("#settings-form")[0].reset();
-		$("#settings-form :input").each(function () {
+		$("#settings-form *").each(function () {
 			var id = $(this).attr("id");
 			if (id.indexOf("player") === 0) {
 				$(this).remove();
-				$("#settings-form label[for='" + id + "']").remove();
+				$("#player-row-" + id).remove();
 			}
 		});
 		addPlayer();
@@ -151,12 +160,21 @@ $(document).ready(function () {
 		$("#grid")
 			.append(d({ class: "team-name vertical"})
 				.text(settings.afcTeam));
+			
+		var Index = {};
+		players = getPlayers();
+		for (var i in players) {
+			Index[players[i]] = i;
+		}
 		
 		for (var i = 0; i < 10; i++) {
 			var row = d({ class: "row" });
 			row.append(d({ class: "box-head box-row col-md-1 offset-md-1"}).text(i));
 			for (var j = 0; j < 10; j++) {
-				row.append(d({ class: "col-md-1 box" }).text(boxes[ROWS * i + j]));
+				var player = boxes[ROWS * i + j];
+				row.append(d({ class: "col-md-1 box" })
+					.text(player)
+					.css("background-color", COLORS[Index[player] % COLORS.length]));
 			}
 			$("#grid").append(row);
 		}
