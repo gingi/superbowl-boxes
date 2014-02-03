@@ -30,6 +30,9 @@
 #grid {
 	position: relative;
 }
+#settings button {
+    margin-left: 20px;
+}
 .box-head {
 	background-color: #999;
 	color: #fff;
@@ -41,8 +44,8 @@
 }
 .box-head.box-col {
 	margin-bottom: 10px;
-	margin-left: 10px;
-	margin-right: 50px;
+	margin-left: -5px;
+	margin-right: 65px;
 }
 .box-head.box-row {
 	margin-right: 10px;

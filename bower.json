@@ -1,11 +1,11 @@
 {
-  "name": "superbowl",
-  "version": "0.0.0",
+  "name": "superbowl-boxes",
+  "version": "0.0.1",
   "authors": [
     "Shiran Pasternak <shiranpasternak@gmail.com>"
   ],
-  "description": "Manage Superbowl boxes",
-  "main": "app.js",
+  "description": "Manage Super Bowl boxes",
+  "main": "js/app.js",
   "license": "MIT",
   "private": true,
   "ignore": [
@@ -17,9 +17,7 @@
   ],
   "dependencies": {
     "bootstrap": "~3.1.0",
-    "requirejs": "~2.1.10",
     "jquery": "~2.1.0",
-    "font-awesome": "~4.0.3",
-    "underscore": "~1.5.2"
+    "font-awesome": "~4.0.3"
   }
 }
